@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 function Header() {
+  const { user, signOutUser } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -94,15 +97,24 @@ function Header() {
                         to="/profile"
                         className="justify-center text-slate-800"
                       >
-                        Profile
+                        {user?.displayName || "Profile"}
                       </Link>
                     </li>
                     <li>
-                      <Link to="/login" className="p-0 mt-1">
-                        <button className="btn btn-sm btn-secondary w-full">
-                          Log In
+                      {user?.uid ? (
+                        <button
+                          onClick={signOutUser}
+                          className="btn btn-sm btn-secondary"
+                        >
+                          Log out
                         </button>
-                      </Link>
+                      ) : (
+                        <Link to="/login" className="p-0 mt-1">
+                          <button className="btn btn-sm btn-secondary w-full">
+                            Log In
+                          </button>
+                        </Link>
+                      )}
                     </li>
 
                     <li>
