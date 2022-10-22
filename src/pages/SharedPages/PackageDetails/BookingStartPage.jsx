@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Header from "../Header/Header";
 
-const PackageDetails = () => {
+const BookingStartPage = () => {
   const place = useLoaderData();
   const { name, img, country, place_details, price, rating, service_fee } =
     place;
@@ -22,12 +22,12 @@ const PackageDetails = () => {
   };
 
   return (
-    <div style={backgroundStyle} className="px-2 lg:px-20">
+    <div style={backgroundStyle}>
       <Header></Header>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-24 px-2 lg:px-20">
         <div>
           <h3 className="text-5xl font-bold text-white uppercase">
-            {name} <span className="text-2xl">{country}</span>
+            {name} <span className="text-xl">{country}</span>
           </h3>
           <p className="text-white mt-2 text-justify text-md">
             {place_details}
@@ -42,7 +42,7 @@ const PackageDetails = () => {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-800"
                   >
-                    Origin
+                    From
                   </label>
                   <input
                     type="text"
@@ -111,4 +111,4 @@ const PackageDetails = () => {
   );
 };
 
-export default PackageDetails;
+export default BookingStartPage;

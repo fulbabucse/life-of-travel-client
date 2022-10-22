@@ -6,9 +6,10 @@ import Category from "../pages/Category/Category";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
-import PackageDetails from "../pages/SharedPages/PackageDetails/PackageDetails";
+import BookingStartPage from "../pages/SharedPages/PackageDetails/BookingStartPage";
 import Login from "../pages/UserActivities/Login/Login";
 import Register from "../pages/UserActivities/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ export const router = createBrowserRouter([
         path: "/place/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tour_place/${params.id}`),
-        element: <PackageDetails></PackageDetails>,
+        element: (
+          <PrivateRoute>
+            <BookingStartPage></BookingStartPage>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
@@ -8,6 +8,11 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { signInUser, signInGoogleUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const handleUserSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,6 +24,7 @@ const Login = () => {
         console.log(res.user);
         toast.success("Successfully logged account");
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.error(err);
