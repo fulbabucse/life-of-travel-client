@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUser, signInGoogleUser } = useContext(AuthContext);
@@ -17,6 +18,7 @@ const Login = () => {
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        toast.success("Successfully logged account");
         form.reset();
       })
       .catch((err) => {

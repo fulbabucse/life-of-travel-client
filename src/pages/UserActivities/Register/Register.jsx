@@ -4,9 +4,10 @@ import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updatesUserProfile } = useContext(AuthContext);
   const [error, setError] = useState(null);
 
   const handleUserRegister = (e) => {
@@ -17,17 +18,26 @@ const Register = () => {
     const photoLink = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoLink, email, password);
 
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
         form.reset();
+        toast.success("Successfully Register Account");
+        updateProfileInfo(name, photoLink);
       })
       .catch((err) => {
         console.error(err);
         setError(err.message);
       });
+  };
+
+  const updateProfileInfo = (name, photoLink) => {
+    const updateInfo = {
+      displayName: name,
+      photoURL: photoLink,
+    };
+    updatesUserProfile(updateInfo);
   };
 
   return (
