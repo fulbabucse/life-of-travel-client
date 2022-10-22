@@ -5,6 +5,8 @@ import Blog from "../pages/Blog/Blog";
 import Category from "../pages/Category/Category";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
+import Profile from "../pages/Profile/Profile";
+import PackageDetails from "../pages/SharedPages/PackageDetails/PackageDetails";
 import Login from "../pages/UserActivities/Login/Login";
 import Register from "../pages/UserActivities/Register/Register";
 
@@ -25,6 +27,13 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
         element: <Category></Category>,
+      },
+      { path: "profile", element: <Profile></Profile> },
+      {
+        path: "/place/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tour_place/${params.id}`),
+        element: <PackageDetails></PackageDetails>,
       },
     ],
   },

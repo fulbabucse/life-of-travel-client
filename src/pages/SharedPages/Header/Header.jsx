@@ -74,6 +74,47 @@ function Header() {
               <li className="text-white/90 hover:text-white transition-all duration-500 uppercase text-md font-bold">
                 <Link to="/contact">Contact</Link>
               </li>
+
+              <li className="text-white/90 hover:text-white transition-all duration-500 uppercase text-md font-bold">
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src="https://placeimg.com/80/80/people" />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link
+                        to="/profile"
+                        className="justify-center text-slate-800"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/login" className="p-0 mt-1">
+                        <button className="btn btn-sm btn-secondary w-full">
+                          Log In
+                        </button>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="/register" className="p-0 mt-1">
+                        <button className="btn btn-sm btn-primary w-full">
+                          Register
+                        </button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

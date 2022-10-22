@@ -1,9 +1,9 @@
 import React from "react";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleCard = ({ item }) => {
-  const { name, img, place_details, price, country, rating } = item;
-  console.log(item);
+  const { id, name, img, place_details, price, country, rating } = item;
 
   const imgStyles = {
     width: "100%",
@@ -29,9 +29,16 @@ const SingleCard = ({ item }) => {
           </span>
         </div>
         <p>{place_details.slice(0, 55)}</p>
+        <div className="badge badge-outline">Start: {price}</div>
         <div className="card-actions justify-between items-center">
-          <div className="badge badge-outline">Start: {price}</div>
-          <button className="btn btn-sm btn-secondary">Book Now</button>
+          <Link to={`/place/${id}`}>
+            <button className="btn btn-sm btn-outline btn-secondary rounded-sm">
+              Details
+            </button>
+          </Link>
+          <button className="btn btn-sm btn-secondary rounded-sm">
+            Book Now
+          </button>
         </div>
       </div>
     </div>

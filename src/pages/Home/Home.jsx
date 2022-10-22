@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import Typed from "react-typed";
+
 import SliderSwiper from "../SharedPages/SliderSwiper/SliderSwiper";
 import CountUp from "react-countup";
 
@@ -15,21 +15,8 @@ const Home = () => {
         <h1 className="text-3xl font-bold lg:mt-8 text-amber-300/90">
           Bangladesh's Coolest Travel Community
         </h1>
-        <span className="text-2xl font-semibold my-3 text-amber-300">
-          <Typed
-            strings={[
-              "A World Within A State Apart",
-              "Asia",
-              "Europe",
-              "North America",
-              "South America",
-              "Africa",
-              "Oceania",
-            ]}
-            typeSpeed={150}
-            backSpeed={100}
-            loop
-          ></Typed>
+        <span className="text-xl font-semibold my-3 text-amber-300">
+          A World Within A State Apart
         </span>
         <div className="w-2/4">
           <form
