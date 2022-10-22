@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, signInGoogleUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const handleUserSignIn = (e) => {
     e.preventDefault();
@@ -24,12 +24,24 @@ const Login = () => {
         setError(err.message);
       });
   };
+
+  const handleGoogleSignIn = () => {
+    signInGoogleUser()
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
           Log In
         </h1>
+        <p className="text-center text-purple-700">
+          Sign in to access your account
+        </p>
         <form onSubmit={handleUserSignIn} className="mt-6">
           <div className="mb-2">
             <label
@@ -64,7 +76,7 @@ const Login = () => {
           </span>
           <div className="mt-3">
             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-              Login
+              Log In
             </button>
           </div>
           <p className="text-red-400 mt-1">{error}</p>
@@ -74,6 +86,7 @@ const Login = () => {
         </div>
         <div className="flex mt-4 gap-x-2">
           <button
+            onClick={handleGoogleSignIn}
             type="button"
             className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
@@ -88,7 +101,6 @@ const Login = () => {
         </div>
 
         <p className="mt-8 text-xs font-light text-center text-gray-700">
-          {" "}
           Don't have an account?{" "}
           <Link
             to="/register"

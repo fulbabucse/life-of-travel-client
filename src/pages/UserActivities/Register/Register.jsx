@@ -36,6 +36,7 @@ const Register = () => {
         <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
           Register
         </h1>
+        <p className="text-center text-purple-700">Create a new Account</p>
         <form onSubmit={handleUserRegister} className="mt-6">
           <div className="mb-2">
             <label

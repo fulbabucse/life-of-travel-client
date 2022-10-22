@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
+import userLogo from "../../../assets/userlogo-travel.png";
 
 function Header() {
   const { user, signOutUser } = useContext(AuthContext);
@@ -85,7 +86,7 @@ function Header() {
                     className="btn btn-ghost btn-circle avatar"
                   >
                     <div className="w-10 rounded-full">
-                      <img src="https://placeimg.com/80/80/people" />
+                      <img src={user?.photoURL || userLogo} />
                     </div>
                   </label>
                   <ul
