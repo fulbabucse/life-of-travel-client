@@ -21,7 +21,7 @@ const Home = () => {
         <div className="w-2/4">
           <form
             onSubmit={handleSearch}
-            className="bg-white/20 transition-colors duration-500 hover:shadow-2xl font-bold py-2 pl-5 pr-2 rounded-full w-full flex justify-between"
+            className="bg-cyan-500/60 transition-colors duration-500 hover:shadow-2xl font-bold py-2 pl-5 pr-2 rounded-full w-full flex justify-between"
           >
             <input
               className="bg-transparent text-white outline-none text-2xl w-full"
@@ -44,15 +44,15 @@ const Home = () => {
 
       <div className="flex justify-center gap-10 pb-6">
         <div className="text-2xl font-bold text-center text-amber-400/90">
-          <CountUp start={0} end={2600} duration={5} delay={0}></CountUp>+
+          <CountUp start={0} end={2600} duration={3} delay={0}></CountUp>+
           <h3>Happy Travellers</h3>
         </div>
         <div className="text-2xl font-bold text-center text-amber-400/90">
-          <CountUp start={0} end={300} duration={5} delay={0}></CountUp>+
+          <CountUp start={0} end={300} duration={3} delay={0}></CountUp>+
           <h3>Memorable Tours</h3>
         </div>
         <div className="text-2xl font-bold text-center text-amber-400/90">
-          <CountUp start={0} end={100} duration={5} delay={0}></CountUp>%
+          <CountUp start={0} end={100} duration={3} delay={0}></CountUp>%
           <h3>Reliable</h3>
         </div>
       </div>

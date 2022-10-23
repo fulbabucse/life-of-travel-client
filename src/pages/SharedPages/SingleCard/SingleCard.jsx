@@ -29,11 +29,8 @@ const SingleCard = ({ item }) => {
           </span>
         </div>
         <p>{place_details.slice(0, 55)}</p>
-        <div className="badge badge-outline">Start: {price}</div>
         <div className="card-actions justify-between items-center">
-          <button className="btn btn-sm btn-outline btn-secondary rounded-sm">
-            Details
-          </button>
+          <div className="badge badge-outline">Start: {price}</div>
           <Link to={`/place/${id}`}>
             <button className="btn btn-sm btn-secondary rounded-sm">
               Book Now

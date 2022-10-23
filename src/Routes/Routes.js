@@ -6,7 +6,7 @@ import Category from "../pages/Category/Category";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
-import BookingStartPage from "../pages/SharedPages/PackageDetails/BookingStartPage";
+import BookingStartPage from "../pages/SharedPages/BookingStartPage/BookingStartPage";
 import Login from "../pages/UserActivities/Login/Login";
 import Register from "../pages/UserActivities/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
