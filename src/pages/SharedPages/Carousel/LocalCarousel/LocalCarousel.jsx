@@ -5,18 +5,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "./style.css";
+import "../style.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const SliderSwiper = () => {
+const LocalCarousel = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/categories`;
+    const url = `http://localhost:5000/localCategory`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCategories(data))
@@ -50,7 +50,7 @@ const SliderSwiper = () => {
       >
         {categories.map((category) => (
           <SwiperSlide key={category.id} className="package">
-            <Link to={`/category/${category.id}`}>
+            <Link to={`/localPackage/${category.id}`}>
               <img src={category.img} alt={category.category} />
             </Link>
             <Link className="text-white" to={`/category/${category.id}`}>
@@ -63,4 +63,4 @@ const SliderSwiper = () => {
   );
 };
 
-export default SliderSwiper;
+export default LocalCarousel;

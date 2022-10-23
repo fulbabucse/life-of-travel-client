@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import About from "../pages/About/About";
 import Blog from "../pages/Blog/Blog";
-import Category from "../pages/Category/Category";
+import International from "../pages/Category/International/International";
+import Local from "../pages/Category/Local/Local";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
@@ -24,10 +25,16 @@ export const router = createBrowserRouter([
       { path: "register", element: <Register></Register> },
       { path: "blog", element: <Blog></Blog> },
       {
-        path: "/category/:id",
+        path: "/international/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
-        element: <Category></Category>,
+          fetch(`http://localhost:5000/internationalCategory/${params.id}`),
+        element: <International></International>,
+      },
+      {
+        path: "/localPackage/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/localCategory/${params.id}`),
+        element: <Local></Local>,
       },
       {
         path: "profile",
@@ -40,7 +47,9 @@ export const router = createBrowserRouter([
       {
         path: "/place/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tour_place/${params.id}`),
+          fetch(
+            `https://life-of-travel-server.vercel.app/tour_place/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <BookingStartPage></BookingStartPage>

@@ -1,0 +1,4 @@
+.search-field::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.9;
+}

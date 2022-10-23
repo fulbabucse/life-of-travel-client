@@ -25,13 +25,11 @@ const BookingStartPage = () => {
     <div style={backgroundStyle}>
       <Header></Header>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-24 px-2 lg:px-20">
-        <div>
-          <h3 className="text-5xl font-bold text-white uppercase">
-            {name} <span className="text-xl">{country}</span>
+        <div className="text-center lg:text-start">
+          <h3 className="text-xl lg:text-5xl lg:text-start font-bold text-white uppercase">
+            {name} <span className="text-sm lg:text-xl">{country}</span>
           </h3>
-          <p className="text-white mt-2 text-justify text-md">
-            {place_details}
-          </p>
+          <p className="text-white mt-2 text-md">{place_details}</p>
         </div>
         <div className="w-full lg:w-3/4 mx-auto">
           <div className="relative flex flex-col justify-center overflow-hidden">
@@ -42,7 +40,7 @@ const BookingStartPage = () => {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-800"
                   >
-                    From
+                    Origin
                   </label>
                   <input
                     type="text"
@@ -72,7 +70,7 @@ const BookingStartPage = () => {
                       htmlFor="email"
                       className="block text-sm font-semibold text-gray-800"
                     >
-                      Origin
+                      From
                     </label>
                     <input
                       type="date"
@@ -86,7 +84,7 @@ const BookingStartPage = () => {
                       htmlFor="email"
                       className="block text-sm font-semibold text-gray-800"
                     >
-                      Origin
+                      To
                     </label>
                     <input
                       type="date"
