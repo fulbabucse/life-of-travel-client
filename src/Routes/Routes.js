@@ -28,13 +28,17 @@ export const router = createBrowserRouter([
       {
         path: "/international/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/internationalCategory/${params.id}`),
+          fetch(
+            `https://life-of-travel-server.vercel.app/internationalCategory/${params.id}`
+          ),
         element: <InternationalCategory></InternationalCategory>,
       },
       {
         path: "/localPackage/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/localCategory/${params.id}`),
+          fetch(
+            `https://life-of-travel-server.vercel.app/localCategory/${params.id}`
+          ),
         element: <LocalCategory></LocalCategory>,
       },
       {
@@ -48,7 +52,9 @@ export const router = createBrowserRouter([
       {
         path: "/place/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/international-place/${params.id}`),
+          fetch(
+            `https://life-of-travel-server.vercel.app/international-place/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <InternationalBooking></InternationalBooking>
@@ -58,7 +64,9 @@ export const router = createBrowserRouter([
       {
         path: "/local/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/local-place/${params.id}`),
+          fetch(
+            `https://life-of-travel-server.vercel.app/local-place/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <LocalBooking></LocalBooking>

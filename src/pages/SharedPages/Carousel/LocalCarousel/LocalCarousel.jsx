@@ -16,7 +16,7 @@ const LocalCarousel = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/localCategory`;
+    const url = `https://life-of-travel-server.vercel.app/localCategory`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCategories(data))
