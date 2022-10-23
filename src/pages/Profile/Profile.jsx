@@ -2,6 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserContext/UserContext";
 import userLogo from "../../assets/userlogo-travel.png";
+import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -133,35 +135,122 @@ const Profile = () => {
                   </p>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <p>
-                    Completely synergize resource taxing relationships via
-                    premier niche markets. Professionally cultivate one-to-one
-                    customer service with robust ideas.
-                    <br />
-                    <br />
-                    Dynamically innovate resource-leveling customer service for
-                    state of the art customer service.
-                  </p>
+                  <form>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        required
+                      />
+                    </div>
+
+                    <div className="mb-2">
+                      <label
+                        htmlFor="photoLink"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Photo link
+                      </label>
+                      <input
+                        type="text"
+                        name="photoUrl"
+                        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        required
+                      />
+                    </div>
+
+                    <div className="mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        required
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        required
+                      />
+                    </div>
+
+                    <div className="flex items-start mb-3">
+                      <div className="flex items-center h-5">
+                        <input
+                          id="remember"
+                          type="checkbox"
+                          value=""
+                          className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                          required
+                        />
+                      </div>
+                      <label
+                        htmlFor="remember"
+                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >
+                        Remember me
+                      </label>
+                    </div>
+
+                    <div className="">
+                      <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                        Save
+                      </button>
+                    </div>
+                  </form>
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <p>
-                    Efficiently unleash cross-media information without
-                    cross-media value. Quickly maximize timely deliverables for
-                    real-time schemas.
-                    <br />
-                    <br /> Dramatically maintain clicks-and-mortar solutions
-                    without functional solutions.
-                  </p>
+                  <form>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        required
+                      />
+                    </div>
+
+                    <div className="">
+                      <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                        Change Password
+                      </button>
+                    </div>
+                  </form>
                 </div>
 
                 <div className={openTab === 4 ? "block" : "hidden"} id="link3">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Saepe provident odit dignissimos labore molestiae,
-                    repellendus, totam laudantium incidunt doloremque quia est,
-                    facere temporibus inventore vitae architecto eligendi vero
-                    molestias ex.
-                  </p>
+                  <div className="">
+                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                      Delete Account
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
