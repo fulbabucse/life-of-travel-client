@@ -1,12 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
 
-const BookingStartPage = () => {
-  const place = useLoaderData();
+const LocalBooking = () => {
+  const localPlace = useLoaderData();
   const { name, img, country, place_details, price, rating, service_fee } =
-    place;
-  console.log(place);
+    localPlace;
+  console.log(localPlace);
 
   const backgroundStyle = {
     width: "100%",
@@ -109,4 +109,4 @@ const BookingStartPage = () => {
   );
 };
 
-export default BookingStartPage;
+export default LocalBooking;

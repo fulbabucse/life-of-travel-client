@@ -2,7 +2,7 @@ import React from "react";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const SingleCard = ({ item }) => {
+const InternationalCard = ({ item }) => {
   const { id, name, img, place_details, price, country, rating } = item;
 
   const imgStyles = {
@@ -42,4 +42,4 @@ const SingleCard = ({ item }) => {
   );
 };
 
-export default SingleCard;
+export default InternationalCard;

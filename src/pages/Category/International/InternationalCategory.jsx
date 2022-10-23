@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import SingleCard from "../../SharedPages/SingleCard/SingleCard";
+import InternationalCard from "../../SharedPages/SingleCard/International/InternationalCard";
 
-const Local = () => {
+const InternationalCategory = () => {
   const [showMore, setShowMore] = useState(5);
   const packageData = useLoaderData();
   const packages = packageData.slice(0, showMore);
@@ -14,7 +14,7 @@ const Local = () => {
     <div className="px-2 lg:px-20 py-4">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-col-3 gap-4">
         {packages.map((item) => (
-          <SingleCard key={item.id} item={item}></SingleCard>
+          <InternationalCard key={item.id} item={item}></InternationalCard>
         ))}
       </div>
       {packages.length >= 5 && (
@@ -31,4 +31,4 @@ const Local = () => {
   );
 };
 
-export default Local;
+export default InternationalCategory;
