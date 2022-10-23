@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserContext/UserContext";
 import userLogo from "../../assets/userlogo-travel.png";
-import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updatesUserProfile, updatesNewPassword, handleDeleteUser } =
+    useContext(AuthContext);
   const [openTab, setOpenTab] = React.useState(1);
+
+  const nameRef = useRef(user?.displayName);
+  const photoLinkRef = useRef(user?.photoURL);
+  const passwordRef = useRef();
+
+  const handleUserUpdatesForm = (e) => {
+    e.preventDefault();
+    const name = nameRef.current.value;
+    const photoLink = photoLinkRef.current.value;
+    handleUpdateProfile(name, photoLink);
+    toast.success("Profile Updates Successfully");
+  };
+
+  const handleUpdateProfile = (name, photoLink) => {
+    const updatesInfo = {
+      displayName: name,
+      photoURL: photoLink,
+    };
+    updatesUserProfile(updatesInfo)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleUpdatePassword = (e) => {
+    e.preventDefault();
+    toast.success("Successfully password updated");
+    const password = passwordRef.current.value;
+    updatesNewPassword(password)
+      .then((res) => {})
+      .catch((err) => console.error(err));
+  };
+
   return (
     <>
       <div className="flex flex-col items-center lg:w-2/4 mx-auto px-2 lg:mt-6">
@@ -135,7 +169,7 @@ const Profile = () => {
                   </p>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <form>
+                  <form onSubmit={handleUserUpdatesForm}>
                     <div className="mb-2">
                       <label
                         htmlFor="name"
@@ -146,6 +180,8 @@ const Profile = () => {
                       <input
                         type="text"
                         name="name"
+                        ref={nameRef}
+                        defaultValue={user?.displayName}
                         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         required
                       />
@@ -161,6 +197,8 @@ const Profile = () => {
                       <input
                         type="text"
                         name="photoUrl"
+                        ref={photoLinkRef}
+                        defaultValue={user?.photoURL}
                         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         required
                       />
@@ -176,20 +214,23 @@ const Profile = () => {
                       <input
                         type="email"
                         name="email"
+                        defaultValue={user?.email}
+                        disabled
                         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         required
                       />
                     </div>
                     <div className="mb-2">
                       <label
-                        htmlFor="password"
+                        htmlFor="contact"
                         className="block text-sm font-semibold text-gray-800"
                       >
-                        Password
+                        Contact Number
                       </label>
                       <input
-                        type="password"
-                        name="password"
+                        type="text"
+                        name="number"
+                        defaultValue="+8801700-000000"
                         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         required
                       />
@@ -220,8 +261,9 @@ const Profile = () => {
                     </div>
                   </form>
                 </div>
+
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <form>
+                  <form onSubmit={handleUpdatePassword}>
                     <div className="mb-2">
                       <label
                         htmlFor="password"
@@ -232,6 +274,7 @@ const Profile = () => {
                       <input
                         type="password"
                         name="password"
+                        ref={passwordRef}
                         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         required
                       />
@@ -247,7 +290,10 @@ const Profile = () => {
 
                 <div className={openTab === 4 ? "block" : "hidden"} id="link3">
                   <div className="">
-                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                    <button
+                      onClick={handleDeleteUser}
+                      className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+                    >
                       Delete Account
                     </button>
                   </div>

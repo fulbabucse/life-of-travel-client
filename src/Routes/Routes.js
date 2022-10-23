@@ -29,7 +29,14 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/category/${params.id}`),
         element: <Category></Category>,
       },
-      { path: "profile", element: <Profile></Profile> },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/place/:id",
         loader: ({ params }) =>

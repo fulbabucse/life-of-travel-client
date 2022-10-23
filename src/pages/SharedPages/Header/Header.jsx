@@ -85,7 +85,7 @@ function Header() {
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-10 rounded-full">
+                    <div className="w-10 rounded-full border-2 border-amber-400">
                       <img src={user?.photoURL || userLogo} />
                     </div>
                   </label>
@@ -94,12 +94,14 @@ function Header() {
                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
-                      <Link
-                        to="/profile"
-                        className="justify-center text-slate-800"
-                      >
-                        {user?.displayName || "Profile"}
-                      </Link>
+                      {user?.uid && (
+                        <Link
+                          to="/profile"
+                          className="justify-center text-slate-800 mb-1"
+                        >
+                          {user?.displayName || "Profile"}
+                        </Link>
+                      )}
                     </li>
                     <li>
                       {user?.uid ? (

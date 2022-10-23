@@ -2,12 +2,14 @@ import React from "react";
 import { createContext } from "react";
 import {
   createUserWithEmailAndPassword,
+  deleteUser,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updatePassword,
   updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
@@ -51,6 +53,14 @@ const UserContext = ({ children }) => {
     return updateProfile(auth.currentUser, updateInfo);
   };
 
+  const updatesNewPassword = (newPassword) => {
+    return updatePassword(auth.currentUser, newPassword);
+  };
+
+  const handleDeleteUser = () => {
+    return deleteUser(auth.currentUser);
+  };
+
   const signOutUser = () => {
     setLoading(true);
     return signOut(auth);
@@ -63,7 +73,9 @@ const UserContext = ({ children }) => {
     signInUser,
     signOutUser,
     signInGoogleUser,
+    handleDeleteUser,
     updatesUserProfile,
+    updatesNewPassword,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
