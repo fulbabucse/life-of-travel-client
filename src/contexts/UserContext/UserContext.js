@@ -3,6 +3,7 @@ import { createContext } from "react";
 import {
   createUserWithEmailAndPassword,
   deleteUser,
+  FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -24,6 +25,7 @@ const UserContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -38,6 +40,10 @@ const UserContext = ({ children }) => {
   const signInGoogleUser = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const signInFacebookUser = () => {
+    return signInWithPopup(auth, facebookProvider);
   };
 
   useEffect(() => {
@@ -76,6 +82,7 @@ const UserContext = ({ children }) => {
     handleDeleteUser,
     updatesUserProfile,
     updatesNewPassword,
+    signInFacebookUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

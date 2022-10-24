@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/UserContext/UserContext";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser, signInGoogleUser } = useContext(AuthContext);
+  const { signInUser, signInGoogleUser, signInFacebookUser } =
+    useContext(AuthContext);
   const [error, setError] = useState(null);
 
   const location = useLocation();
@@ -35,6 +36,16 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInGoogleUser()
       .then((res) => {
+        navigate(from, { replace: true });
+        console.log(res.user);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleFacebookSignIn = () => {
+    signInFacebookUser()
+      .then((res) => {
+        navigate(from, { replace: true });
         console.log(res.user);
       })
       .catch((err) => console.error(err));
@@ -97,13 +108,15 @@ const Login = () => {
             type="button"
             className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
-            <FaGoogle></FaGoogle>
+            Continue with Google
+            <FaGoogle className="ml-2"></FaGoogle>
           </button>
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
-            <FaGithub></FaGithub>
-          </button>
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
-            <FaTwitter></FaTwitter>
+          <button
+            onClick={handleFacebookSignIn}
+            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
+          >
+            Continue with Facebook
+            <FaFacebook className="ml-2"></FaFacebook>
           </button>
         </div>
 

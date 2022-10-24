@@ -131,8 +131,8 @@ const Register = () => {
             </button>
           </div>
         </form>
-        <p className="text-red-400 mt-1">{error}</p>
-        <div className="relative flex items-center justify-center w-full mt-6 border border-t">
+        <p className="text-red-400">{error}</p>
+        {/* <div className="relative flex items-center justify-center w-full mt-6 border border-t">
           <div className="absolute px-5 bg-white">Or</div>
         </div>
         <div className="flex mt-4 gap-x-2">
@@ -148,9 +148,9 @@ const Register = () => {
           <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
             <FaTwitter></FaTwitter>
           </button>
-        </div>
+        </div> */}
 
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
+        <p className="mt-3 text-xs font-light text-center text-gray-700">
           {" "}
           Already have an account?{" "}
           <Link
