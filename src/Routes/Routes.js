@@ -6,10 +6,10 @@ import InternationalCategory from "../pages/Category/International/International
 import LocalCategory from "../pages/Category/Local/LocalCategory";
 import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
-import Profile from "../pages/Profile/Profile";
 import InternationalBooking from "../pages/SharedPages/BookingStartPage/International/InternationalBooking";
 import LocalBooking from "../pages/SharedPages/BookingStartPage/Local/LocalBooking";
 import Login from "../pages/UserActivities/Login/Login";
+import Profile from "../pages/UserActivities/Profile/Profile";
 import Register from "../pages/UserActivities/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/UserContext/UserContext";
-import userLogo from "../../assets/userlogo-travel.png";
+import userLogo from "../../../assets/userlogo-travel.png";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 const Profile = () => {
   const { user, updatesUserProfile, updatesNewPassword, handleDeleteUser } =
